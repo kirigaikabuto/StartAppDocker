@@ -1,7 +1,8 @@
 import os
 import signal
-from flask import Flask
+from flask import Flask, jsonify
 from buzz import generator
+import json
 
 app = Flask(__name__)
 
@@ -16,5 +17,19 @@ def generate_buzz():
     return page
 
 
+@app.route("/json")
+def get_json():
+    d = {
+        "username": "asddd"
+    }
+    data = json.dumps(d)
+    return data
+
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=os.getenv('PORT'))  # port 5000 is the default
+    port = 5000
+    portArgument = os.getenv('PORT')
+    if portArgument != "" and portArgument is not None:
+        port = int(portArgument)
+
+    app.run(host='0.0.0.0', port=port)  # port 5000 is the default
