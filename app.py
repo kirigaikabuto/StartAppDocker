@@ -20,7 +20,7 @@ def generate_buzz():
 @app.route("/json")
 def get_json():
     d = {
-        "username": "asddd"
+        "username": "12345678"
     }
     data = json.dumps(d)
     return data
