@@ -80,7 +80,7 @@ func main() {
 	}
 	for _, v := range results {
 		if v.Name == "cicd-buzz" {
-			_, err := git.PlainClone("", false, &git.CloneOptions{
+			_, err := git.PlainClone("./repos", false, &git.CloneOptions{
 				URL:      v.CloneUrl,
 				Progress: os.Stdout,
 			})
