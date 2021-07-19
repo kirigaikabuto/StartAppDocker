@@ -25,7 +25,7 @@ type Repo struct {
 func main() {
 	clientId := "d8bd2c153ccb947d8208"
 	clientSecret := "a844db007f4d22024fa2f041bab52bb83406f75b"
-	code := "76406101c441a49a8ced"
+	code := "352184d1b147acf63240"
 	url := "https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s"
 	url = fmt.Sprintf(url, clientId, clientSecret, code)
 	req, err := http.NewRequest("GET", url, nil)
@@ -80,7 +80,7 @@ func main() {
 	}
 	for _, v := range results {
 		if v.Name == "cicd-buzz" {
-			_, err := git.PlainClone("./repos", false, &git.CloneOptions{
+			_, err := git.PlainClone("./repos/"+v.Name, false, &git.CloneOptions{
 				URL:      v.CloneUrl,
 				Progress: os.Stdout,
 			})
