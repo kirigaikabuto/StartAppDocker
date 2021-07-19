@@ -25,7 +25,7 @@ type Repo struct {
 func main() {
 	clientId := "d8bd2c153ccb947d8208"
 	clientSecret := "a844db007f4d22024fa2f041bab52bb83406f75b"
-	code := "352184d1b147acf63240"
+	code := "216627b34330981ec54f"
 	url := "https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s"
 	url = fmt.Sprintf(url, clientId, clientSecret, code)
 	req, err := http.NewRequest("GET", url, nil)
